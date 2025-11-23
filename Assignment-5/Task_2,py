@@ -1,0 +1,29 @@
+
+class LoanApprovalSystem:
+    def __init__(self):
+        self.applicants = []
+
+    def add_applicant(self, name, gender, income, credit_score):
+        self.applicants.append({
+            'name': name,
+            'gender': gender,
+            'income': income,
+            'credit_score': credit_score
+        })
+
+    def evaluate_applicants(self):
+        approvals = []
+        for applicant in self.applicants:
+            if applicant['income'] > 30000 and applicant['credit_score'] > 650:
+                approvals.append(applicant['name'])
+        return approvals
+
+if __name__ == "__main__":
+    system = LoanApprovalSystem()
+    system.add_applicant("Alice", "Female", 50000, 700)
+    system.add_applicant("Bob", "Male", 25000, 600)
+    system.add_applicant("Charlie", "Male", 40000, 720)
+    system.add_applicant("Diana", "Female", 35000, 640)
+
+    approved = system.evaluate_applicants()
+    print("Approved Applicants:", approved)
