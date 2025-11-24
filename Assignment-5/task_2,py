@@ -1,4 +1,3 @@
-
 class LoanApprovalSystem:
     def __init__(self):
         self.applicants = []
