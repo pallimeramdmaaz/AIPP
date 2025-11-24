@@ -1,4 +1,3 @@
-
 import getpass, hashlib
 
 print("=== Insecure Login System ===")
