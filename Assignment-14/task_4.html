@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Info Portal</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            background: #0047b3;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* Responsive Navigation Bar */
+        nav {
+            background: #003580;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            padding: 12px 16px;
+            color: white;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background: #00224d;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            nav a {
+                float: none;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Centered content */
+        .content {
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* Login Form */
+        .form-container {
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #aaa;
+            border-radius: 10px;
+        }
+
+        /* Messages */
+        .error { color: red; }
+        .success { color: green; }
+
+        /* Footer */
+        footer {
+            background: lightgray;
+            padding: 10px;
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+
+    <script>
+        function validateForm() {
+            let username = document.getElementById("username").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let msg = document.getElementById("msg");
+
+            msg.textContent = "";
+            msg.className = "";
+
+            if (username === "" && password === "") {
+                msg.textContent = "Username and Password cannot be empty!";
+                msg.className = "error";
+                return false;
+            }
+            if (username === "") {
+                msg.textContent = "Please enter a username.";
+                msg.className = "error";
+                return false;
+            }
+            if (password === "") {
+                msg.textContent = "Please enter a password.";
+                msg.className = "error";
+                return false;
+            }
+
+            msg.textContent = "Login successful!";
+            msg.className = "success";
+            return false; /* Prevent actual submission */
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Student Info Portal</h1>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Courses</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h2>Welcome to the Student Info Portal</h2>
+        <p>Login to continue</p>
+
+        <!-- Login Form -->
+        <div class="form-container">
+            <form onsubmit="return validateForm()">
+                <label>Username:</label><br>
+                <input type="text" id="username"><br><br>
+
+                <label>Password:</label><br>
+                <input type="password" id="password"><br><br>
+
+                <button type="submit">Login</button>
+
+                <p id="msg"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Student Info Portal
+    </footer>
+
+</body>
+</html>
